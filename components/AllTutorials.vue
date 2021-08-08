@@ -32,8 +32,11 @@
               </div>
             </ul>
           </div>
-          <div v-else-if="!tutorials.length && error == null">
+          <div v-else-if="!tutorials.length && error == ''">
             <h4 style="text-align:center;">LOADING TUTORIALS...</h4>
+          </div>
+          <div v-else-if="!tutorials.length && error == null">
+            <h4 style="text-align:center">NO TUTORIALS FOUND!</h4>
           </div>
           <div v-else>
             <p style="text-align:center;color:red;">{{ error }}</p>
@@ -85,7 +88,7 @@ export default {
       currentTutorial: null,
       currentIndex: -1,
       searchTitle: "",
-      error: null
+      error: ""
     };
   },
   mounted() {
@@ -96,6 +99,7 @@ export default {
       TutorialDataService.getAll()
         .then(response => {
           this.tutorials = response.data;
+          this.error = null;
           console.log(this.tutorials);
         })
         .catch(e => {
