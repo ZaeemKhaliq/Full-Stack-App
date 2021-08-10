@@ -118,14 +118,16 @@ export default {
       this.currentIndex = -1;
     },
     removeAllTutorials() {
-      TutorialDataService.deleteAll()
-        .then(response => {
-          console.log(response.data);
-          this.refreshList();
-        })
-        .catch(e => {
-          console.log(e);
-        });
+      if (window.confirm("Remove all tutorials?")) {
+        TutorialDataService.deleteAll()
+          .then(response => {
+            console.log(response.data);
+            this.refreshList();
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      }
     },
     searchByTitle() {
       if (this.searchTitle == "") {
@@ -292,6 +294,30 @@ export default {
 
   &:hover {
     background-color: #177a16;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .tutorials-container {
+    flex-direction: column;
+    margin: 3rem 0;
+  }
+
+  .tutorials-list-container,
+  .tutorial-details-container {
+    width: 100%;
+  }
+
+  .search-tutorial-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 5rem;
+    justify-content: space-between;
+  }
+
+  .input-search {
+    width: 80%;
   }
 }
 </style>

@@ -93,9 +93,6 @@ export default {
   }
 }
 
-.add-tutorial-form-container {
-}
-
 .add-tutorial-form {
   width: 30%;
   margin: 2rem auto;
@@ -122,7 +119,7 @@ export default {
 }
 
 .submit-button {
-  height: 3rem;
+  height: 2.5rem;
   width: 50%;
   font-size: 1.5rem;
   font-weight: bold;

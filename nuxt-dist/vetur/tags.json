@@ -1,0 +1,20 @@
+{
+  "AddTutorial": {
+    "description": "Auto imported from components/AddTutorial.vue"
+  },
+  "AllTutorials": {
+    "description": "Auto imported from components/AllTutorials.vue"
+  },
+  "Footer": {
+    "description": "Auto imported from components/Footer.vue"
+  },
+  "Header": {
+    "description": "Auto imported from components/Header.vue"
+  },
+  "Home": {
+    "description": "Auto imported from components/Home.vue"
+  },
+  "Tutorial": {
+    "description": "Auto imported from components/Tutorial.vue"
+  }
+}

@@ -1,9 +1,15 @@
 <template>
   <section class="home-page-container">
-    <h1 style="text-align: center;">WELCOME TO HOME PAGE!</h1>
+    <Home />
   </section>
 </template>
 
 <script>
-export default {};
+import Home from "../components/Home.vue";
+
+export default {
+  components: {
+    Home
+  }
+};
 </script>

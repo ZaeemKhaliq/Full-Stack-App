@@ -44,22 +44,20 @@ export default {};
 
 .header-division {
   display: flex;
-  justify-content: space-between;
+
   height: 100%;
-  width: 50%;
 }
 
 .title-container {
-  width: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 2rem;
 }
 
 .nav-links-container {
-  width: 60%;
   display: flex;
-  justify-content: space-between;
+  margin-left: 2rem;
 
   a.nuxt-link-active {
     background-color: $primary-hover-color;
@@ -75,6 +73,7 @@ export default {};
   padding: 0 1rem;
   text-decoration: none;
   color: white;
+  margin: 0 0.5rem;
 
   &:hover {
     background-color: $primary-hover-color;
@@ -82,6 +81,51 @@ export default {};
 
   p {
     margin: 0;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .header-container {
+    height: 2.5rem;
+  }
+  .nav-link {
+    p {
+      font-size: 0.8rem;
+    }
+  }
+
+  .header-container {
+    h1 {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header-container {
+    height: auto;
+  }
+  .header-division {
+    flex-direction: column;
+  }
+  .title-container {
+    width: 100%;
+    padding: 0;
+    height: 3rem;
+    border-bottom: 1px solid white;
+  }
+  .nav-links-container {
+    margin: 0;
+    height: 2.5rem;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .nav-link {
+    p {
+      font-size: 0.6rem;
+    }
   }
 }
 </style>

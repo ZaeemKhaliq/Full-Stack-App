@@ -74,42 +74,48 @@ export default {
     },
     updatePublished(status) {
       console.log(status);
-      var data = {
-        id: this.currentTutorial.id,
-        title: this.currentTutorial.title,
-        description: this.currentTutorial.description,
-        published: status
-      };
+      if (window.confirm("Change the status of Tutorial?")) {
+        var data = {
+          id: this.currentTutorial.id,
+          title: this.currentTutorial.title,
+          description: this.currentTutorial.description,
+          published: status
+        };
 
-      TutorialDataService.update(this.currentTutorial._id, data)
-        .then(response => {
-          console.log(response);
-          this.getTutorial(this.id);
-        })
-        .catch(e => {
-          console.log(e);
-        });
+        TutorialDataService.update(this.currentTutorial._id, data)
+          .then(response => {
+            console.log(response);
+            this.getTutorial(this.id);
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      }
     },
     updateTutorial() {
-      TutorialDataService.update(this.id, this.currentTutorial)
-        .then(response => {
-          console.log(response.data);
-          alert("Updated successfully!");
-          this.$router.push("/tutorials");
-        })
-        .catch(e => {
-          console.log(e);
-        });
+      if (window.confirm("Update the details?")) {
+        TutorialDataService.update(this.id, this.currentTutorial)
+          .then(response => {
+            console.log(response.data);
+            alert("Updated successfully!");
+            this.$router.push("/tutorials");
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      }
     },
     deleteTutorial() {
-      TutorialDataService.delete(this.id)
-        .then(response => {
-          console.log(response.data);
-          this.$router.push("/tutorials");
-        })
-        .catch(e => {
-          console.log(e);
-        });
+      if (window.confirm("Delete the tutorial?")) {
+        TutorialDataService.delete(this.id)
+          .then(response => {
+            console.log(response.data);
+            this.$router.push("/tutorials");
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      }
     }
   }
 };
@@ -173,6 +179,7 @@ export default {
   cursor: pointer;
   font-weight: 700;
   border: 1px solid black;
+  margin: 0.5rem 0;
 
   &:hover {
     background-color: #2d7ab1;
@@ -194,6 +201,23 @@ export default {
 
   &:hover {
     background-color: rgb(196, 21, 21);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .status-buttons-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .individual-tutorial-division {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .individual-tutorial-division {
+    width: 90%;
   }
 }
 </style>
