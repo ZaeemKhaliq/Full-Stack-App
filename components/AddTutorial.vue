@@ -52,29 +52,32 @@ export default {
   methods: {
     handleSubmit() {
       console.log("Submit function!");
+      if (this.title == "" || this.description == "") {
+        alert("Fill both fields!");
+      } else {
+        var data = {
+          title: this.title,
+          description: this.description
+        };
 
-      var data = {
-        title: this.title,
-        description: this.description
-      };
+        TutorialDataService.create(data)
+          .then(response => {
+            this.id = response.data.id;
+            this.title = response.data.title;
+            this.description = response.data.description;
+            this.published = response.data.published;
+            this.submitted = true;
 
-      TutorialDataService.create(data)
-        .then(response => {
-          this.id = response.data.id;
-          this.title = response.data.title;
-          this.description = response.data.description;
-          this.published = response.data.published;
-          this.submitted = true;
+            console.log(response.data);
+            alert("Added successfully!");
 
-          console.log(response.data);
-          alert("Added successfully!");
-
-          this.title = "";
-          this.description = "";
-        })
-        .catch(e => {
-          console.log(e);
-        });
+            this.title = "";
+            this.description = "";
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      }
     }
   }
 };
@@ -94,7 +97,7 @@ export default {
 }
 
 .add-tutorial-form {
-  width: 30%;
+  width: 40%;
   margin: 2rem auto;
 
   .input-title,
@@ -131,6 +134,18 @@ export default {
 
   &:hover {
     background-color: $primary-hover-color;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .add-tutorial-form {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .add-tutorial-form {
+    width: 80%;
   }
 }
 </style>
