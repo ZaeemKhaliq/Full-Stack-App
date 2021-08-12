@@ -36,13 +36,22 @@ export default {
   align-items: center;
 
   div {
-    height: 5rem;
-    width: 5rem;
-    background-color: $primary-color;
-    transform: scale(4.3) rotate(45deg);
-    position: absolute;
-    left: -2.5rem;
-    z-index: -1;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -5.2rem;
+      width: 5rem;
+      height: 5rem;
+      background-color: $primary-color;
+      align-self: center;
+      transform: rotate(45deg) scale(4.3);
+    }
   }
 }
 
@@ -52,13 +61,22 @@ export default {
   align-items: center;
 
   div {
-    height: 5rem;
-    width: 5rem;
-    background-color: $primary-color;
-    transform: scale(4.3) rotate(45deg);
-    position: absolute;
-    right: -2.5rem;
-    z-index: -1;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      right: -2.5rem;
+      width: 5rem;
+      height: 5rem;
+      background-color: $primary-color;
+      align-self: center;
+      transform: rotate(45deg) scale(4.3);
+    }
   }
 }
 
