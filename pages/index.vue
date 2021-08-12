@@ -66,9 +66,9 @@ export default {
   .home-page-container {
     height: calc(100vh - 7.5rem);
     flex-direction: column;
+    justify-content: space-between;
   }
 
-  .home-welcome,
   .left,
   .right {
     width: 100%;
@@ -77,9 +77,6 @@ export default {
   .left,
   .right {
     height: 25%;
-  }
-  .home-welcome {
-    height: 50%;
   }
 
   .right {

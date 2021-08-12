@@ -51,9 +51,10 @@ export default {};
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
   .home-welcome {
-    height: auto;
+    height: 50%;
+    width: 100%;
   }
 }
 </style>
