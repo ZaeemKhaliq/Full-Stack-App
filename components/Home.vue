@@ -27,7 +27,7 @@ export default {};
 
     &:hover {
       filter: drop-shadow(0px 10px 4px $primary-color);
-      transform: rotate(3deg);
+      transform: rotate(2deg);
       font-weight: 600;
       animation: rotation 0.5s 0.2s infinite;
     }
@@ -40,13 +40,13 @@ export default {};
 
   @keyframes rotation {
     0% {
-      transform: rotate(3deg);
+      transform: rotate(2deg);
     }
     50% {
-      transform: rotate(-3deg);
+      transform: rotate(-2deg);
     }
     100% {
-      transform: rotate(3deg);
+      transform: rotate(2deg);
     }
   }
 }
