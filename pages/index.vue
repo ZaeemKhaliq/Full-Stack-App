@@ -45,7 +45,7 @@ export default {
     &::before {
       content: "";
       position: absolute;
-      left: -5.2rem;
+      left: -2.5rem;
       width: 5rem;
       height: 5rem;
       background-color: $primary-color;
