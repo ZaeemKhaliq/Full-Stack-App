@@ -7,23 +7,108 @@
         </nuxt-link>
       </div>
       <div class="nav-links-container">
-        <nuxt-link to="/tutorials" class="nav-link" exact>
-          <div>
-            <p>SHOW TUTORIALS</p>
+        <div class="tutorials-link">
+          <nuxt-link to="/tutorials" class="nav-link" exact>
+            <div>
+              <p>SHOW TUTORIALS</p>
+            </div>
+          </nuxt-link>
+          <nuxt-link to="/add-tutorial" class="nav-link" exact>
+            <div>
+              <p>ADD TUTORIAL</p>
+            </div>
+          </nuxt-link>
+          <nuxt-link
+            to="/user"
+            class="nav-link"
+            exact
+            v-if="currentUser != null"
+          >
+            <div>
+              <p>USER</p>
+            </div>
+          </nuxt-link>
+          <nuxt-link to="/mod" class="nav-link" exact v-if="showModeratorBoard">
+            <div>
+              <p>MODERATOR</p>
+            </div>
+          </nuxt-link>
+          <nuxt-link to="/admin" class="nav-link" exact v-if="showAdminBoard">
+            <div>
+              <p>ADMIN</p>
+            </div>
+          </nuxt-link>
+        </div>
+        <div class="auth-links">
+          <nuxt-link
+            to="/login"
+            class="nav-link"
+            exact
+            v-if="currentUser == null"
+          >
+            <div>
+              <p>LOGIN</p>
+            </div>
+          </nuxt-link>
+          <nuxt-link
+            to="/signup"
+            class="nav-link"
+            exact
+            v-if="currentUser == null"
+          >
+            <div>
+              <p>SIGNUP</p>
+            </div>
+          </nuxt-link>
+          <nuxt-link
+            to="/profile"
+            class="nav-link"
+            exact
+            v-if="currentUser != null"
+          >
+            <div>
+              <p>PROFILE</p>
+            </div>
+          </nuxt-link>
+          <div class="nav-link" v-if="currentUser != null" @click="logOut">
+            <div>
+              <p>LOGOUT</p>
+            </div>
           </div>
-        </nuxt-link>
-        <nuxt-link to="/add-tutorial" class="nav-link" exact>
-          <div>
-            <p>ADD TUTORIAL</p>
-          </div>
-        </nuxt-link>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-export default {};
+import AuthService from "../services/auth.service";
+
+export default {
+  data() {
+    return {
+      showModeratorBoard: false,
+      showAdminBoard: false,
+      currentUser: null
+    };
+  },
+  mounted() {
+    const user = AuthService.getCurrentUser();
+
+    if (user) {
+      this.currentUser = user;
+      this.showModeratorBoard = user.roles.includes("ROLE_MODERATOR");
+      this.showAdminBoard = user.roles.includes("ROLE_ADMIN");
+    }
+  },
+  methods: {
+    logOut() {
+      console.log("Logout method!");
+      AuthService.logout();
+      window.location.reload();
+    }
+  }
+};
 </script>
 
 <style lang="scss">
@@ -39,6 +124,8 @@ export default {};
 
   h1 {
     margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
   }
 }
 
@@ -52,16 +139,23 @@ export default {};
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 2rem;
+  width: 20%;
 }
 
 .nav-links-container {
   display: flex;
-  margin-left: 2rem;
+
+  width: 80%;
+  justify-content: space-between;
 
   a.nuxt-link-active {
     background-color: $primary-hover-color;
   }
+}
+
+.tutorials-link,
+.auth-links {
+  display: flex;
 }
 
 .nav-link {
@@ -73,7 +167,7 @@ export default {};
   padding: 0 1rem;
   text-decoration: none;
   color: white;
-  margin: 0 0.5rem;
+  margin: 0 0.2rem;
 
   &:hover {
     background-color: $primary-hover-color;
@@ -84,19 +178,43 @@ export default {};
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1100px) {
   .header-container {
-    height: 2.5rem;
+    h1 {
+      font-size: 1rem;
+    }
   }
+
   .nav-link {
     p {
       font-size: 0.8rem;
     }
   }
+}
+
+@media screen and (max-width: 900px) {
+  .nav-link {
+    p {
+      font-size: 0.6rem;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .header-container {
+    height: 2.5rem;
+  }
+  .nav-link {
+    padding: 0 0.5rem;
+
+    p {
+      font-size: 0.5rem;
+    }
+  }
 
   .header-container {
     h1 {
-      font-size: 1.4rem;
+      font-size: 0.8rem;
     }
   }
 }
@@ -104,6 +222,10 @@ export default {};
 @media screen and (max-width: 600px) {
   .header-container {
     height: auto;
+
+    h1 {
+      font-size: 1.5rem;
+    }
   }
   .header-division {
     flex-direction: column;
@@ -116,16 +238,21 @@ export default {};
   }
   .nav-links-container {
     margin: 0;
-    height: 2.5rem;
-    justify-content: center;
+    height: 2rem;
+    justify-content: space-between;
+    width: 100%;
   }
 }
 
-@media screen and (max-width: 350px) {
-  .nav-link {
-    p {
-      font-size: 0.6rem;
-    }
+@media screen and (max-width: 420px) {
+  .nav-links-container {
+    flex-direction: column;
+    height: 3rem;
+  }
+  .tutorials-link,
+  .auth-links {
+    height: 50%;
+    justify-content: center;
   }
 }
 </style>

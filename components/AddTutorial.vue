@@ -27,8 +27,14 @@
         <br />
         <br />
         <div class="submit-button-container">
-          <button type="submit" class="submit-button">
-            ADD
+          <button type="submit" class="submit-button" :disabled="loading">
+            {{ !loading ? "ADD" : null }}
+            <b-spinner
+              label="Spinning"
+              v-if="loading"
+              variant="light"
+              class="loading-spinner"
+            ></b-spinner>
           </button>
         </div>
       </form>
@@ -46,15 +52,19 @@ export default {
       title: "",
       description: "",
       published: false,
-      submitted: false
+      submitted: false,
+      loading: false
     };
   },
   methods: {
     handleSubmit() {
       console.log("Submit function!");
+
       if (this.title == "" || this.description == "") {
         alert("Fill both fields!");
       } else {
+        this.loading = true;
+
         var data = {
           title: this.title,
           description: this.description
@@ -73,9 +83,11 @@ export default {
 
             this.title = "";
             this.description = "";
+            this.loading = false;
           })
           .catch(e => {
             console.log(e);
+            this.loading = false;
           });
       }
     }
@@ -92,6 +104,9 @@ export default {
   .heading {
     h1 {
       text-align: center;
+      font-weight: 700;
+      font-size: 2rem;
+      margin: 1.5rem 0;
     }
   }
 }
@@ -118,23 +133,38 @@ export default {
 }
 
 .submit-button-container {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .submit-button {
   height: 2.5rem;
   width: 50%;
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 600;
   background-color: $primary-color;
   color: white;
   border: 1px solid black;
   cursor: pointer;
   transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &:hover {
     background-color: $primary-hover-color;
   }
+
+  &:disabled {
+    background-color: #e67d5d;
+  }
+}
+
+.loading-spinner {
+  font-size: 1.2rem;
+  height: 1.5rem;
+  width: 1.5rem;
 }
 
 @media screen and (max-width: 900px) {
@@ -146,6 +176,16 @@ export default {
 @media screen and (max-width: 500px) {
   .add-tutorial-form {
     width: 80%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .add-tutorial-container {
+    .heading {
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
   }
 }
 </style>

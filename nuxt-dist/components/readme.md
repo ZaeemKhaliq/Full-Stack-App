@@ -11,4 +11,7 @@ You can directly use them in pages and other components without the need to impo
 - `<Footer>` | `<footer>` (components/Footer.vue)
 - `<Header>` | `<header>` (components/Header.vue)
 - `<Home>` | `<home>` (components/Home.vue)
+- `<Login>` | `<login>` (components/Login.vue)
+- `<Profile>` | `<profile>` (components/Profile.vue)
+- `<Signup>` | `<signup>` (components/Signup.vue)
 - `<Tutorial>` | `<tutorial>` (components/Tutorial.vue)

@@ -131,6 +131,7 @@ export default {
 .individual-tutorial-heading {
   h1 {
     text-align: center;
+    font-weight: 700;
   }
 }
 
@@ -145,6 +146,11 @@ export default {
 
 .individual-tutorial {
   text-align: center;
+
+  h4 {
+    font-weight: 700;
+    margin: 1.5rem 0;
+  }
 
   .input-title,
   .input-description {

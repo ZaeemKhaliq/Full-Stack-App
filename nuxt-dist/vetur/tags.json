@@ -14,6 +14,15 @@
   "Home": {
     "description": "Auto imported from components/Home.vue"
   },
+  "Login": {
+    "description": "Auto imported from components/Login.vue"
+  },
+  "Profile": {
+    "description": "Auto imported from components/Profile.vue"
+  },
+  "Signup": {
+    "description": "Auto imported from components/Signup.vue"
+  },
   "Tutorial": {
     "description": "Auto imported from components/Tutorial.vue"
   }

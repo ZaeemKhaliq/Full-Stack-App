@@ -33,10 +33,14 @@
             </ul>
           </div>
           <div v-else-if="!tutorials.length && error == ''">
-            <h4 style="text-align:center;">LOADING TUTORIALS...</h4>
+            <h5 style="text-align:center;font-weight:700;margin: 1.5rem 0;">
+              LOADING TUTORIALS...
+            </h5>
           </div>
           <div v-else-if="!tutorials.length && error == null">
-            <h4 style="text-align:center">NO TUTORIALS FOUND!</h4>
+            <h5 style="text-align:center;font-weight:700;margin: 1.5rem 0;">
+              NO TUTORIALS FOUND!
+            </h5>
           </div>
           <div v-else>
             <p style="text-align:center;color:red;">{{ error }}</p>
@@ -171,6 +175,7 @@ export default {
     h1 {
       font-weight: 700;
       text-align: center;
+      font-size: 2rem;
     }
   }
 }
@@ -188,6 +193,8 @@ export default {
 .input-search {
   height: 2rem;
   width: 20rem;
+  border: 1px solid black;
+  outline: none;
 }
 
 .search-button {
@@ -225,6 +232,7 @@ export default {
     margin: 0;
     text-align: center;
     font-weight: 700;
+    font-size: 1.5rem;
   }
 }
 
@@ -277,7 +285,12 @@ export default {
     text-align: center;
     margin: 0;
     font-weight: 700;
+    font-size: 1.5rem;
   }
+}
+
+.tutorial-details {
+  padding: 2rem 0;
 }
 
 .edit-button {
