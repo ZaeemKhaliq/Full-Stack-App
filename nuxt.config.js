@@ -30,13 +30,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
-    "@nuxtjs/style-resources",
-    "bootstrap-vue/nuxt"
+    "@nuxtjs/style-resources"
   ],
-  bootstrapVue: {
-    componentPlugins: ["SpinnerPlugin"],
-    components: ["BSpinner"]
-  },
 
   styleResources: {
     scss: ["~/assets/scss/variables.scss"]

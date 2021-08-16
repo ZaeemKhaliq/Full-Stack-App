@@ -32,12 +32,6 @@
           <div class="login-button-container">
             <button type="submit" class="login-button">
               {{ !loading ? "LOGIN" : null }}
-              <b-spinner
-                label="Spinning"
-                v-if="loading"
-                variant="light"
-                class="loading-spinner"
-              ></b-spinner>
             </button>
           </div>
         </form>

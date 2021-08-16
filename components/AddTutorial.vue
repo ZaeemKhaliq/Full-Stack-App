@@ -29,12 +29,6 @@
         <div class="submit-button-container">
           <button type="submit" class="submit-button" :disabled="loading">
             {{ !loading ? "ADD" : null }}
-            <b-spinner
-              label="Spinning"
-              v-if="loading"
-              variant="light"
-              class="loading-spinner"
-            ></b-spinner>
           </button>
         </div>
       </form>
