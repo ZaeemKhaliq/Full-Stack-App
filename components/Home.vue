@@ -20,10 +20,11 @@ export default {};
 
   h1 {
     text-align: center;
-    margin: 0;
+    margin: 0 auto;
     font-weight: 300;
     font-size: 3rem;
     transition: all 0.2s;
+    width: 95%;
 
     &:hover {
       filter: drop-shadow(0px 10px 4px $primary-color);

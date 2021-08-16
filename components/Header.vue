@@ -200,6 +200,12 @@ export default {
   }
 }
 
+@media screen and (max-width: 800px) {
+  .header-container {
+    border-bottom: 1px solid white;
+  }
+}
+
 @media screen and (max-width: 700px) {
   .header-container {
     height: 2.5rem;
@@ -253,6 +259,10 @@ export default {
   .auth-links {
     height: 50%;
     justify-content: center;
+  }
+
+  .auth-links {
+    border-bottom: 1px solid white;
   }
 }
 </style>

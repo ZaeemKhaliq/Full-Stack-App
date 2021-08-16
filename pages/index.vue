@@ -2,10 +2,12 @@
   <section class="home-page-container">
     <div class="left">
       <div></div>
+      <main></main>
     </div>
     <Home />
     <div class="right">
       <div></div>
+      <main></main>
     </div>
   </section>
 </template>
@@ -95,24 +97,39 @@ export default {
   .left,
   .right {
     height: 25%;
+    overflow: hidden;
+    position: relative;
   }
 
   .right {
-    border-radius: 50rem 50rem 0 0;
-    background-color: $primary-color;
-
     div {
       display: none;
+    }
+
+    main {
+      height: 5rem;
+      width: 5rem;
+      background-color: $primary-color;
+      transform: scale(4.2) rotate(45deg);
+      z-index: -1;
+      position: absolute;
+      bottom: -10rem;
     }
   }
 
   .left {
-    border-radius: 0 0 50rem 50rem;
-    border: 1px solid white;
-    background-color: $primary-color;
-
     div {
       display: none;
+    }
+
+    main {
+      height: 5rem;
+      width: 5rem;
+      background-color: $primary-color;
+      transform: scale(4.2) rotate(45deg);
+      z-index: -1;
+      position: absolute;
+      top: -10rem;
     }
   }
 }
