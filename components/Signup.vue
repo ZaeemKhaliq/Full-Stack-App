@@ -42,7 +42,7 @@
           <p style="color:red;">{{ errorMessage }}</p>
           <div class="signup-button-container">
             <button type="submit" class="signup-button">
-              {{ !loading ? "SIGNUP" : null }}
+              {{ !loading ? "SIGNUP" : "Please Wait..." }}
             </button>
           </div>
         </form>

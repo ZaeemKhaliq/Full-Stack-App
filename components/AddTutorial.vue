@@ -28,7 +28,7 @@
         <br />
         <div class="submit-button-container">
           <button type="submit" class="submit-button" :disabled="loading">
-            {{ !loading ? "ADD" : null }}
+            {{ !loading ? "ADD" : "Please Wait..." }}
           </button>
         </div>
       </form>

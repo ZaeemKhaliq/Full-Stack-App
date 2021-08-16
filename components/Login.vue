@@ -31,7 +31,7 @@
           <p style="color:red;">{{ message }}</p>
           <div class="login-button-container">
             <button type="submit" class="login-button">
-              {{ !loading ? "LOGIN" : null }}
+              {{ !loading ? "LOGIN" : "Please wait..." }}
             </button>
           </div>
         </form>
