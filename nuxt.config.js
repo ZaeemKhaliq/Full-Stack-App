@@ -33,6 +33,9 @@ export default {
     "@nuxtjs/style-resources",
     "bootstrap-vue/nuxt"
   ],
+  bootstrapVue: {
+    components: ["BSpinner"]
+  },
 
   styleResources: {
     scss: ["~/assets/scss/variables.scss"]
