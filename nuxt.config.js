@@ -34,6 +34,7 @@ export default {
     "bootstrap-vue/nuxt"
   ],
   bootstrapVue: {
+    componentPlugins: ["SpinnerPlugin"],
     components: ["BSpinner"]
   },
 
